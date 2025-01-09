@@ -23,7 +23,7 @@ int game(int maxnum){
     int random = rand() % maxnum + 1;
 
     do {
-        cout << "arvottu " << random << endl;
+
         cout << "arvaa luku " << endl;
         cin >> arvaus;
         arvausten_maara++;

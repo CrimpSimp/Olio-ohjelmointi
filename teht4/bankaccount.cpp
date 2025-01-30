@@ -3,12 +3,13 @@
 BankAccount::BankAccount(string name)
 {
     owner = name;
-    //cout<<"Account created for "<<owner<<endl;
+   // cout<<"Account created for "<<owner<<endl;
+
 }
 
 double BankAccount::getBalance()
 {
-    cout<<"Checking account balance: $"<<balance<<endl;
+    //cout<<"account balance: $"<<balance<<endl;
     return balance;
 }
 
@@ -23,8 +24,7 @@ bool BankAccount::deposit(double amount)
     else
     {
         balance += amount;
-        cout<<"$"<<amount<<" deposited"<<endl;
-        cout<<"balance after transaction: $"<<balance<<endl;
+        cout<<"$"<<amount<<" deposited "<<"for "<<owner<<endl;
         return true;
     }
 }
@@ -45,11 +45,7 @@ bool BankAccount::withdraw(double amount)
     else
     {
         balance -= amount;
-        cout<<"$"<<amount<<" withdrawn"<<endl;
-        cout<<"balance after transaction: $"<<balance<<endl;
+        cout<<"$"<<amount<<" withdrawn "<< "from "<<owner<<endl;
         return true;
     }
-
-
-
 }

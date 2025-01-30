@@ -1,9 +1,11 @@
 #include "creditaccount.h"
+#include "bankaccount.h"
 
 CreditAccount::CreditAccount(string name, double amount):BankAccount(name)
 {
     creditLimit = amount;
-    //owner = name;
+    owner = name;
+    //cout<<"Credit limit: $"<<creditLimit<<endl;
 }
 
 bool CreditAccount::deposit(double amount)
@@ -13,12 +15,15 @@ bool CreditAccount::deposit(double amount)
         cout<<"Invalid amount"<<endl;
         return false;
     }
-
+    else if((balance + amount) > 0)
+    {
+        cout<<"Credit balance can't exceed 0"<<endl;
+        return false;
+    }
     else
     {
-
-        cout<<"$"<<amount<<" deposited"<<endl;
-
+        balance += amount;
+        cout<<"Credit payment of $"<<amount<<endl;
         return true;
     }
 }
@@ -30,18 +35,16 @@ bool CreditAccount::withdraw(double amount)
         cout<<"Invalid amount"<<endl;
         return false;
     }
-    else if (balance - amount < 0)
+    else if ((creditLimit + balance - amount) < 0 )
     {
-        cout<<"Insufficient funds"<<endl;
+        cout<<"Can't exceed credit limit"<<endl;
         return false;
     }
     else
     {
-
-        cout<<"$"<<amount<<" withdrawn"<<endl;
-        cout<<"balance after transaction: $"<<balance<<endl;
+        balance -= amount;
+        cout<<"$"<<amount<<" withdrawn from "<<owner<<" Credit account. Credit limit: $"<<creditLimit<<endl;
         return true;
     }
-
 }
 

@@ -16,6 +16,7 @@ public:
     bool withdraw(double);
     bool creditPayment(double);
     bool creditWithdraw(double);
+    bool transfer(double, Client&);
 
 private:
     string name;

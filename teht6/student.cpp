@@ -32,7 +32,7 @@ int Student::getAge()
 
 void Student::printStudentInfo()
 {
-    getName();
-    getAge();
+    cout<<"Name: "<<getName()<<endl;
+    cout<<"Age: "<<getAge()<<endl;
 
 }

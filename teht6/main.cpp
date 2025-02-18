@@ -55,12 +55,11 @@ int main ()
                 return a.getName() < b.getName();
             });
             cout<<"Students sorted aplhabetically"<<endl;
-            for(auto& Student : studentList)
+            for (Student &Student : studentList)
             {
-                cout<<"Name: "<<Student.getName()<<endl;
-                cout<<"Age : "<<Student.getAge()<<endl;
+                Student.printStudentInfo();
+                cout<<"\n";
             }
-
             break;}
 
         case 3:{
@@ -72,10 +71,10 @@ int main ()
                 return a.getAge() < b.getAge();
             });
             cout<<"Students sorted by age. Ascending order"<<endl;
-            for(auto& Student : studentList)
+            for (Student &Student : studentList)
             {
-                cout<<"Name: "<<Student.getName()<<endl;
-                cout<<"Age: "<<Student.getAge()<<endl;
+                Student.printStudentInfo();
+                cout<<"\n";
             }
             break;}
 
@@ -88,10 +87,11 @@ int main ()
             cin>>searchName;
 
             auto it = find_if(studentList.begin(),studentList.end(),[searchName](Student& obj){
-                return searchName== obj.getName();});
+                return searchName == obj.getName();});
             if(it != studentList.end())
             {
                 cout<<"Student found \n";
+                cout<<"\n";
                 cout<<"Name: "<<it->getName()<<endl;
                 cout<<"Age: "<<it->getAge()<<endl;
             }
@@ -109,6 +109,5 @@ int main ()
 
  return 0;
 }
-
 
 
